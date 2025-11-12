@@ -1,7 +1,7 @@
 let cookies = 0;
 let cursors = 0;
 let grandmas = 0;
-let cps = 0; // cookies per second
+let cps = 0;
 
 const cookie = document.getElementById("cookie");
 const counter = document.getElementById("counter");
@@ -10,17 +10,19 @@ const buyCursor = document.getElementById("cursorButton");
 const buyGrandma = document.getElementById("grandmaButton");
 const cursorCount = document.getElementById("cursorCount");
 
-function updateUI() {
-  counter.textContent = `Cookies: ${Math.floor(cookies)}`;
-  cpsDisplay.textContent = `Cookies per second: ${cps}`;
-  cursorCount.textContent = `Cursors: ${cursors}`;
-  buyCursor.textContent = `Buy Cursor (${10 + cursors * 5} cookies)`;
+function cursorCost() {
+  return Math.floor(15 * (1.15 ** cursors));
 }
 
-for (let i = 0; i < Infinity; i++) {
-  cps = cursors*0.1 + grandmas*1;
-  const cursorCost = 15 * 1.15^(cursors-1)
-  const grandmaCost = 100 * 1.15^(grandmas-1)
+function grandmaCost() {
+  return Math.floor(100 * (1.15 ** grandmas));
+}
+
+function updateUI() {
+  counter.textContent = `Cookies: ${Math.floor(cookies)}`;
+  cpsDisplay.textContent = `Cookies per second: ${cps.toFixed(1)}`;
+  buyCursor.textContent = `Buy Cursor (${cursorCost()} cookies)`;
+  buyGrandma.textContent = `Buy Grandma (${grandmaCost()} cookies)`;
 }
 
 cookie.onclick = () => {
@@ -29,28 +31,37 @@ cookie.onclick = () => {
 };
 
 buyCursor.onclick = () => {
-  if (cookies >= cursorCost) {
-    cookies -= cursorCost;
+  const cost = cursorCost();
+  if (cookies >= cost) {
+    cookies -= cost;
     cursors++;
+    updateCPS();
     updateUI();
   } else {
-    alert(`Not enough cookies! You need ${cursorCost} cookies.`);
+    alert(`Not enough cookies! Need ${cost} cookies.`);
   }
 };
 
 buyGrandma.onclick = () => {
-  if (cookies >= grandmaCost) {
-    cookies -= grandmaCost;
+  const cost = grandmaCost();
+  if (cookies >= cost) {
+    cookies -= cost;
     grandmas++;
+    updateCPS();
     updateUI();
   } else {
-    alert(`Not enough cookies! You need ${grandmaCost} cookies.`);
+    alert(`Not enough cookies! Need ${cost} cookies.`);
   }
 };
+
+function updateCPS() {
+  cps = cursors * 0.1 + grandmas * 1;
+}
 
 setInterval(() => {
   cookies += cps / 10;
   updateUI();
 }, 100);
 
+updateCPS();
 updateUI();
