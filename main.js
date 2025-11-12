@@ -5,7 +5,7 @@ let cps = cursors; // 1 cookie per cursor per second
 const cookie = document.getElementById("cookie");
 const counter = document.getElementById("counter");
 const cpsDisplay = document.getElementById("cps");
-const buyCursor = document.getElementById("buyCursor");
+const buyCursor = document.getElementById("cursorButton");
 const cursorCount = document.getElementById("cursorCount");
 
 // Update UI
@@ -24,14 +24,14 @@ cookie.onclick = () => {
 
 // Buy Cursor
 buyCursor.onclick = () => {
-  const cost = 10 + cursors * 5; // Increase price with each buy
-  if (cookies >= cost) {
-    cookies -= cost;
+  const cursorCost = 10 + cursors * 5; // Increase price with each buy
+  if (cookies >= cursorCost) {
+    cookies -= cursorCost;
     cursors++;
     cps = cursors;
     updateUI();
   } else {
-    alert(`Not enough cookies! You need ${cost} cookies.`);
+    alert(`Not enough cookies! You need ${cursorCost} cookies.`);
   }
 };
 
