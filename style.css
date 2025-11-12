@@ -30,8 +30,8 @@ body {
   margin-bottom: 10px;
 }
 
-#buyCursor {
-  padding: 200px 400px;
+.shop button {
+  padding: 20px 40px;
   font-size: 20px;
   cursor: pointer;
   margin: 10px;
