@@ -22,6 +22,7 @@ body {
 #cookie {
   margin-top: 20px;
   font-size: 75px;
+  border-radius: 50%;
   width: 200px;
   cursor: pointer;
   transition: transform 0.1s ease;
