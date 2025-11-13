@@ -1,6 +1,5 @@
 let cookies = 0;
 let cursors = 0;
-
 let grandmas = 0;
 let cps = 0;
 
