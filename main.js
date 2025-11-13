@@ -1,5 +1,6 @@
 let cookies = 0;
 let cursors = 0;
+
 let grandmas = 0;
 let cps = 0;
 
@@ -11,11 +12,11 @@ const buyGrandma = document.getElementById("grandmaButton");
 const cursorCount = document.getElementById("cursorCount");
 
 function cursorCost() {
-  return Math.floor(15 * (1.15 ** cursors));
+  return Math.floor(15 * 1.15 ** cursors);
 }
 
 function grandmaCost() {
-  return Math.floor(100 * (1.15 ** grandmas));
+  return Math.floor(100 * 1.15 ** grandmas);
 }
 
 function updateUI() {
