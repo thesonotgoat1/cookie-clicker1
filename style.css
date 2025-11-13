@@ -1,16 +1,29 @@
-body {
-  font-family: Arial, sans-serif;
+
+html, body {
+  height: 100%;
+  margin: 0;
   background: #f2e4c4;
-  padding: 20px;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* stack header on top, game below */
+  justify-content: center; /* center vertically */
+  align-items: center;     /* center horizontally */
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
 }
 
 .game {
   display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: flex-start; /* align top */
-  gap: 40px; /* space between cookie + shop */
-  margin-top: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  background: #fff6dd;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* left side cookie area */
@@ -23,10 +36,12 @@ body {
   margin-top: 20px;
   font-size: 75px;
   border-radius: 50%;
+  clip-path: circle(28% at 51% 48%);
   width: 200px;
   cursor: pointer;
   transition: transform 0.1s ease;
 }
+
 /* right side shop */
 .shop {
   background: #fff6dd;
@@ -64,8 +79,4 @@ body {
 
 #cookie:active {
   transform: scale(0.95);
-}
-
-#cookie:hover {
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
 }
