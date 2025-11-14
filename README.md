@@ -1,5 +1,5 @@
 this is my version of cookie clicker, made as an unblocked site
-link: thesonotgoat1.github.io/cookie-clicker1
+link: 'thesonotgoat1.github.io/cookie-clicker1'
 
 ## **cookie clicker, update 1.1** ##
 version 1.1;
