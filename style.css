@@ -41,6 +41,7 @@ h1 {
   width: 200px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  animation: wiggle 2s infinite ease-in-out;
 }
 
 /* right side shop */
@@ -81,8 +82,4 @@ h1 {
 
 #cookie:hover {
   transform: scale(1.1);
-}
-
-#cookie:active {
-  transform: scale(0.90);
 }
