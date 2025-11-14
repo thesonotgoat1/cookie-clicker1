@@ -1,4 +1,4 @@
-let cookies = 10000;
+let cookies = 0;
 let cursors = 0;
 let grandmas = 0;
 let farms = 0;
