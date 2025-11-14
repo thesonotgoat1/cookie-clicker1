@@ -1,4 +1,4 @@
-let cookies = 0;
+let cookies = 10000;
 let cursors = 0;
 let grandmas = 0;
 let cps = 0;
@@ -6,9 +6,12 @@ let cps = 0;
 const cookie = document.getElementById("cookie");
 const counter = document.getElementById("counter");
 const cpsDisplay = document.getElementById("cps");
-const buyCursor = document.getElementById("cursorButton");
-const buyGrandma = document.getElementById("grandmaButton");
+const cursorButton = document.getElementById("cursorButtonID")
+const buyCursor = document.getElementById("cursorCost");
 const cursorCount = document.getElementById("cursorCount");
+const grandmaButton = document.getElementById("grandmaButton");
+const buyGrandma = document.getElementById("grandmaCost");
+const grandmaCount = document.getElementById("grandmaCount");
 
 function cursorCost() {
   return Math.floor(15 * 1.15 ** cursors);
@@ -21,8 +24,10 @@ function grandmaCost() {
 function updateUI() {
   counter.textContent = `Cookies: ${Math.floor(cookies)}`;
   cpsDisplay.textContent = `Cookies per second: ${cps.toFixed(1)}`;
-  buyCursor.textContent = `Buy Cursor (${cursorCost()} cookies)`;
-  buyGrandma.textContent = `Buy Grandma (${grandmaCost()} cookies)`;
+  buyCursor.textContent = `Cursor (${cursorCost()} cookies)`;
+  cursorCount.textContent = cursors;
+  buyGrandma.textContent = `Grandma (${grandmaCost()} cookies)`;
+  grandmaCount.textContent = grandmas;
 }
 
 cookie.onclick = () => {
@@ -30,28 +35,24 @@ cookie.onclick = () => {
   updateUI();
 };
 
-buyCursor.onclick = () => {
+cursorButton.onclick = () => {
   const cost = cursorCost();
   if (cookies >= cost) {
     cookies -= cost;
     cursors++;
     updateCPS();
     updateUI();
-  } else {
-    alert(`Not enough cookies! Need ${cost} cookies.`);
-  }
+  } else { }
 };
 
-buyGrandma.onclick = () => {
+grandmaButton.onclick = () => {
   const cost = grandmaCost();
   if (cookies >= cost) {
     cookies -= cost;
     grandmas++;
     updateCPS();
     updateUI();
-  } else {
-    alert(`Not enough cookies! Need ${cost} cookies.`);
-  }
+  } else { }
 };
 
 function updateCPS() {

@@ -9,7 +9,6 @@ html, body {
   justify-content: center; /* center vertically */
   align-items: center;     /* center horizontally */
 }
-
 h1 {
   font-size: 48px;
   margin-bottom: 30px;
@@ -20,13 +19,15 @@ h1 {
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
-  background: #fff6dd;
+  background: #f9efd2;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
 }
 
-/* left side cookie area */
+.game:hover {
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1)
+}
 .cookie-area {
   text-align: center;
   font-size: 20px;
@@ -39,7 +40,7 @@ h1 {
   clip-path: circle(28% at 51% 48%);
   width: 200px;
   cursor: pointer;
-  transition: transform 0.1s ease;
+  transition: transform 0.2s ease;
 }
 
 /* right side shop */
@@ -59,24 +60,29 @@ h1 {
 }
 
 /* buttons */
-.shop button {
-  display: block;
-  width: 100%;
+.Button {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
   margin: 10px 0;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   border-radius: 8px;
   border: none;
   background: #e0b974;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 
-.shop button:hover {
+.Button:hover {
   background: #d3a95c;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+#cookie:hover {
+  transform: scale(1.1);
+}
+
 #cookie:active {
-  transform: scale(0.95);
+  transform: scale(0.90);
 }
