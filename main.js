@@ -52,7 +52,7 @@ function farmCost() {
 }
 
 function updatestuf() {
-  cps = cursors * 0.1 + grandmas * 1;
+  cps = cursors * 0.1 + grandmas * 1 + farms * 8;
   counter.textContent = `Cookies: ${Math.floor(cookies)}`;
   cpsDisplay.textContent = `Cookies per second: ${cps.toFixed(1)}`;
   buyCursor.textContent = `Cursor (${cursorCost()} cookies)`;
